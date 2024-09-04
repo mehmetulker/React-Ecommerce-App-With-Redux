@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { NavLink, Link } from "react-router-dom";
 import { TfiSearch } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
 import { SlBasket } from "react-icons/sl";
+import { IoIosMenu } from "react-icons/io";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 function Navbar() {
+  const [visible, setVisible] = useState(false);
+  console.log(visible);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <img src={assets.logo_img} alt="" className="w-40" />
@@ -16,7 +20,7 @@ function Navbar() {
         </NavLink>
         <NavLink to="/collection" className="flex flex-col items-center gap-1 ">
           <p>COLLECTION</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-3/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1 ">
           <p>ABOUT</p>
@@ -32,7 +36,7 @@ function Navbar() {
         <div className="group relative">
           <div>
             <CgProfile className="size-8 h-8 w-8 cursor-pointer" />
-            <div className=" group-hover:block hidden absolute dropdown-menu right-0 pt-4">
+            <div className=" group-hover:block hidden absolute dropdown-menu right-18 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded ">
                 <p className="cursor-pointer hover:text-black">My Profile</p>
                 <p className="cursor-pointer hover:text-black">Orders</p>
@@ -41,13 +45,43 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div>
-          <Link to="/cart" className="relative">
-            <SlBasket className="size-8 cursor-pointer" />
-            <p className=" absolute right-[-5px] top-[-5px] w-5 text-center leading-4 bg-black text-white aspect-square rounded-full tex-[15px]">
-              10
-            </p>
-          </Link>
+        <Link to="/cart" className="relative">
+          <SlBasket className="size-8 cursor-pointer w-8 min-w-8" />
+          <p className=" absolute right-[-5px] top-[-5px] w-5 text-center leading-4 bg-black text-white aspect-square rounded-full tex-[15px]">
+            10
+          </p>
+        </Link>
+        <IoIosMenu
+          onClick={() => setVisible(true)}
+          className=" size-8 cursor-pointer w-8  sm:hidden"
+        />
+      </div>
+      {/* Sidebar menu for samll screens */}
+      <div
+        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+          visible ? `w-full` : `w-0`
+        }`}
+      >
+        <div className=" flex flex-col text-gray-600 gap-4 p-4">
+          <div
+            onClick={() => setVisible(false)}
+            className="flex items-center gap-3 p-2"
+          >
+            <MdArrowBackIosNew className=" h-4" />
+            <p>Back</p>
+          </div>
+          <NavLink onClick={() => setVisible(false)} to="/">
+            HOME
+          </NavLink>
+          <NavLink onClick={() => setVisible(false)} to="/collection">
+            COLLECTION
+          </NavLink>
+          <NavLink onClick={() => setVisible(false)} to="/about">
+            ABOUT
+          </NavLink>
+          <NavLink onClick={() => setVisible(false)} to="/contact">
+            CONTACT
+          </NavLink>
         </div>
       </div>
     </div>
