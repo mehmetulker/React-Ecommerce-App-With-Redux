@@ -5,3 +5,7 @@
 a.active hr {
   display: block;
 }
+
+body {
+  width: vh;
+}
