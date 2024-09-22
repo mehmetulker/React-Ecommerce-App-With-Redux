@@ -11,7 +11,7 @@ import { ShopContext } from "../context/ShopContext";
 function Navbar() {
   const [visible, setVisible] = useState(false);
   const { showSearch, setShowSearch } = useContext(ShopContext);
-  console.log(visible);
+  // console.log(visible);
   return (
     <div className="flex items-center justify-between pt-3  font-medium">
       <img src={assets.logo_img} alt="" className="w-40" />

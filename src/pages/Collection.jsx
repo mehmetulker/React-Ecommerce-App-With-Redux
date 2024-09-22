@@ -46,11 +46,11 @@ const Collection = () => {
       setSubCategorys((prev) => [...prev, e.target.value]);
     }
   };
-  console.log(subcategorys);
+  // console.log(subcategorys);
 
   const applyFilter = () => {
     let productsCopy = products.slice();
-    console.log(productsCopy);
+    // console.log(productsCopy);
 
     if (showSearch && search) {
       productsCopy = productsCopy.filter((item) =>

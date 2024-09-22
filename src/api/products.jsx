@@ -1,11 +1,30 @@
 const url = `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/`;
 export const products = [
   {
+    id: 101,
+    name: "Multi-Image Test",
+    description: "Gold Modern Grafik T- Shirt Siyah ",
+    price: 85,
+    image: [
+      `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/8684195048645_0.jpg`,
+      `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/8684195048492_0.jpg`,
+      `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/8684195048768_0.jpg`,
+      `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/8684195048386_0.jpg`,
+    ],
+    sizes: ["M", "S", "XL", "XXL"],
+    category: "Men",
+    subCategory: "Topwear",
+    bestseller: true,
+  },
+  {
     id: 1,
     name: "EA7",
     description: "EA7 Bisiklet Yaka Siyah Erkek T-Shirt ",
     price: 85,
-    image: [`${url}5003143700_001_01.jpg`],
+    image: [
+      `${url}5003143700_001_01.jpg`,
+      `https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/5003106403_001_01.jpg`,
+    ],
     sizes: ["M", "S", "XL", "XXL"],
     category: "Men",
     subCategory: "Topwear",
@@ -357,7 +376,7 @@ export const products = [
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 30,
     image: [
-      "https://raw.githubusercontent.com/mehmetulker/ecommerce_api/main/men/p_img46.png",
+      "https://raw.githubusercontent.com/mehmetulker/ecommerce_api/refs/heads/main/men/p_img46.png",
     ],
     sizes: ["M", "S", "XL", "XXL"],
     category: "Men",
