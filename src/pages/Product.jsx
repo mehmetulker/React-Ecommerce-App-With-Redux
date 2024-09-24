@@ -7,7 +7,7 @@ import RelatedProducts from "../components/RelatedProducts";
 
 function Product() {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -83,7 +83,10 @@ function Product() {
             </div>
           </div>
 
-          <button className="bg-black text-white px-8 py-3  text-sm active:bg-gray-700">
+          <button
+            onClick={() => addToCart(productData.id, size)}
+            className="bg-black text-white px-8 py-3  text-sm active:bg-gray-700"
+          >
             ADD TO CART
           </button>
           <hr className="mt-8 wm:4/5" />
@@ -131,20 +134,3 @@ function Product() {
 }
 
 export default Product;
-
-// <div>
-//   {/* Inclusive div */}
-//   <div className="overflow-hidden w-full h-80 bg-gray-200 rounded-lg">
-//     {/* Use aspect-ratio and object-cover to fit the image exactly*/}
-//     <img
-//       className="w-full h-full object-cover hover:scale-110 transition-transform ease-in-out"
-//       src={productDate.image[0]}
-//       alt=""
-//     />
-//   </div>
-//   <p className="pt-3">{productDate.name}</p>
-//   <p className="text-sm font-medium">
-//     {productDate.currency}
-//     {productDate.price}
-//   </p>
-// </div>;

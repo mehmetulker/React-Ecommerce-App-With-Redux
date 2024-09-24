@@ -10,7 +10,7 @@ import { ShopContext } from "../context/ShopContext";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
-  const { showSearch, setShowSearch } = useContext(ShopContext);
+  const { showSearch, setShowSearch, cartCount } = useContext(ShopContext);
   // console.log(visible);
   return (
     <div className="flex items-center justify-between pt-3  font-medium">
@@ -53,7 +53,7 @@ function Navbar() {
         <Link to="/cart" className="relative">
           <SlBasket className="size-8 cursor-pointer w-8 min-w-8" />
           <p className=" absolute right-[-5px] top-[-5px] w-5 text-center leading-4 bg-black text-white aspect-square rounded-full tex-[15px]">
-            10
+            {cartCount}
           </p>
         </Link>
         <IoIosMenu
