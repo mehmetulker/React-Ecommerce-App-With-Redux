@@ -11,7 +11,7 @@ function Cart() {
   return (
     <div className="border-t pt-14">
       <div className=" text-2xl mb-3">
-        <Title text1={"YOUR"} text2={"CAR"} />
+        <Title text1={"YOUR"} text2={"CART"} />
         <div>
           {cartItems.map((item, index) => {
             return (

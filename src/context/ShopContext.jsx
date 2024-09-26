@@ -3,6 +3,7 @@ import { products } from "../api/products";
 import { toast } from "react-toastify";
 export const ShopContext = createContext();
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const ShopContextProvider = ({ children }) => {
   const currency = "$";
@@ -12,6 +13,7 @@ const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const navigate = useNavigate();
+  const [date, setDate] = useState(new Date());
 
   const addToCart = async (itemId, size) => {
     if (!size) {
@@ -34,7 +36,12 @@ const ShopContextProvider = ({ children }) => {
       // If the item doesn't exist, add it to the cart
       products.map((item) => {
         if (item.id === itemId) {
-          const newItem = { ...item, sizes: size, quantity: 1 };
+          const newItem = {
+            ...item,
+            sizes: size,
+            quantity: 1,
+            date: moment(date).format("DD/MM/YYYY"),
+          };
           setCartItems([...cartItems, newItem]);
           // setCartCount(cartCount + 1);
         }
